@@ -1,0 +1,212 @@
+/* Form Container Styles */
+.entry {
+    background-color: #5A3D31;
+    padding-top: 6%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.form-box {
+    background-color: rgba(74, 44, 42, 0.8); /* Transparent background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-box h2 {
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.form-box input[type="checkbox"] {
+    accent-color: #FFC0CB;
+}
+
+.form-box input::placeholder {
+    color: #FFFFFF;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.form-box button {
+    background-color: #FFC0CB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.form-box a {
+    color: #FFC0CB;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+
+.form-box .social-login {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.form-box .social-login a { 
+    display: inline-block; 
+    margin: 0 10px;
+}
+
+.form-box hr {
+    border: 0;
+    height: 1px;
+    background: #FFC0CB;
+    margin: 20px 0;
+}
+
+.form-box .step-indicator {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-box .step-indicator .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.form-box .step-indicator .step span {
+    width: 20px;
+    height: 20px;
+    background-color: #FFC0CB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #37211A;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-box .step-indicator .step p {
+    color: #FFC0CB;
+}
+
+.form-box .step-indicator .step.step.active p {
+    color: #FFFFFF;
+}
+
+.form-box .step-indicator .step.active span {
+    background-color: white;
+    color: #37211A;
+}
+
+.error-message {
+    color: #ff8080;
+    margin: 10px 0;
+}
+
+.form-box span {
+    color: white;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.entry {
+    background-color: #5A3D31;
+    padding-top: 6%;
+}
+
+.booking-container {
+    padding: 20px;
+    background-color: #5A3D31;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  
+  .booking-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .booking-container label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .booking-container input,
+  .booking-container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+  
+  .booking-container button {
+    margin-top: 20px;
+    background-color: #FFC0CB;
+    color: #37211A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1rem;
+  }
+  
+  .booking-container p {
+    margin-top: 20px;
+    color: #FFC0CB;
+  }

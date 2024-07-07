@@ -1,0 +1,144 @@
+.entry-booking {
+    background-color: #5A3D31;
+    padding-top: 115px;
+}
+
+.booking-container-custom {
+    padding: 20px;
+    background-color: #5A3D31;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.booking-container-custom h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-container-custom {
+    background-color: rgba(74, 44, 42, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-group-custom {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group-custom label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.form-group-custom input,
+.form-group-custom select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: white;
+    box-sizing: border-box;
+}
+
+.form-group-custom select option {
+    color: black; /* Ensures options are readable when displayed */
+}
+
+.form-group-custom input::placeholder {
+    color: #fff;
+}
+
+.button-custom {
+    margin-top: 20px;
+    background-color: #FFC0CB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.button-custom:focus,
+.button-custom:active {
+    background-color: white;
+    color: #FFC0CB;
+}
+
+.confirmation-message {
+    margin-top: 20px;
+    color: #ff8080;
+    text-align: center;
+}
+
+/* Calendar styles */
+.react-calendar {
+    background: linear-gradient(to right, #5A3D31, #4A2C2A);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+
+.react-calendar__navigation button {
+    color: white;
+    background: #FFC0CB;
+    border: none;
+    border-radius: 50%;
+    margin: 2px;
+    font-size: 0.9rem;
+}
+
+.react-calendar__tile {
+    background: transparent;
+    border-radius: 50%;
+    color: white;
+    padding: 10px;
+}
+
+.react-calendar__tile--active {
+    background: white;
+    color: #FFC0CB;
+}
+
+.react-calendar__tile--now {
+    background: #4A2C2A;
+    border-radius: 50%;
+}
+
+.react-calendar__tile--now:hover,
+.react-calendar__tile--active:hover {
+    background: white;
+    color: #FFC0CB;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    color: white;
+}
+
+.react-calendar__tile--disabled {
+    color: #ddd;
+}
+
+.react-calendar__tile--available {
+    background-color: #FFC0CB;
+    color: white;
+}
+
+.react-calendar__tile--available:focus,
+.react-calendar__tile--available:active {
+    background-color: white;
+    color: #FFC0CB;
+}
+
+.book-options {
+    color: black;
+}
