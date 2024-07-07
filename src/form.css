@@ -1,7 +1,7 @@
 /* Form Container Styles */
 .entry {
     background-color: #5A3D31;
-    padding-top: 6%;
+    padding-top: 85px;
 }
 
 .form-container {
@@ -160,53 +160,3 @@
     display: flex;
     justify-content: space-between;
 }
-
-.entry {
-    background-color: #5A3D31;
-    padding-top: 6%;
-}
-
-.booking-container {
-    padding: 20px;
-    background-color: #5A3D31;
-    color: white;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 10px;
-  }
-  
-  .booking-container h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .booking-container label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .booking-container input,
-  .booking-container select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-  }
-  
-  .booking-container button {
-    margin-top: 20px;
-    background-color: #FFC0CB;
-    color: #37211A;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 20px;
-    font-size: 1rem;
-  }
-  
-  .booking-container p {
-    margin-top: 20px;
-    color: #FFC0CB;
-  }
