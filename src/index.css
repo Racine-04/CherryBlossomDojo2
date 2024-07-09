@@ -292,3 +292,10 @@ body, html {
   margin: 10px 0;
   color: #FFC0CB;
 }
+
+/* Footer language selector */
+.footer-language-selector {
+  text-align: left;
+  margin-top: 10px;
+}
+

@@ -1,9 +1,16 @@
 import React from 'react';
+import { useTranslation } from './TranslationContext';
 import './index.css';
 import logo from './img/logo.jpg'; // https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
 import { HashLink as Link } from 'react-router-hash-link'; // https://stackoverflow.com/questions/40280369/use-anchors-with-react-router
 
 const Footer = () => {
+  const { setLanguage } = useTranslation();
+
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -28,7 +35,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-      <br></br>
+        <br />
         <ul className="footer-links">
           <li><Link to="/#about">About Us</Link></li>
           <li><a href="#contact">Contact Us</a></li>
@@ -36,7 +43,17 @@ const Footer = () => {
           <li><a href="#privacy">Privacy Policy</a></li>
           <li><a href="#disclaimer">Disclaimer</a></li>
         </ul>
-        <br></br>
+        <br />
+        <div className="footer-language-selector">
+          <label htmlFor="language-select">Language: </label>
+          <select id="language-select" onChange={handleLanguageChange}>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            {/* Add more languages as needed */}
+          </select>
+        </div>
         <p>&copy; 2024 ABC Company. All rights reserved.</p>
       </div>
     </footer>
