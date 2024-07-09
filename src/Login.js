@@ -1,22 +1,24 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import CherryBlossomBot from './Chatbot';
 import { useNavigate } from "react-router-dom"; // https://stackoverflow.com/questions/50644976/react-button-onclick-redirect-page
 import '@fortawesome/fontawesome-free/css/all.min.css'; // https://stackoverflow.com/questions/76387374/how-to-add-icons-in-react-js
 import { HashLink as Link } from 'react-router-hash-link'; // https://stackoverflow.com/questions/40280369/use-anchors-with-react-router
 import './form.css';
 
 const Login = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
-  const navigate = useNavigate(); 
-
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (email === '' || password === '') {
-      setError('Please fill out all fields');
+      setError(t('fillOutAllFields'));
     } else {
       setError('');
       // Proceed with login 
@@ -29,23 +31,23 @@ const Login = () => {
       <Navbar name="form" />
       <div className="form-container">
         <div className="form-box">
-          <h2>Log in</h2>
+          <h2>{t('logInTitle')}</h2>
           <div className="form-group">
-            <label htmlFor="email">Email address or user name</label>
+            <label htmlFor="email">{t('emailOrUsername')}</label>
             <input
               type="email"
               id="email"
-              placeholder="Enter your email or user name"
+              placeholder={t('emailOrUsernamePlaceholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t('password')}</label>
             <input
               type="password"
               id="password"
-              placeholder="Enter your password"
+              placeholder={t('passwordPlaceholder')}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -57,12 +59,12 @@ const Login = () => {
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
             />
-            <label htmlFor="rememberMe">Remember me</label>
+            <label htmlFor="rememberMe">{t('rememberMe')}</label>
           </div>
           {error && <div className="error-message">{error}</div>}
-          <button onClick={handleLogin}>Log in</button>
-          <a href="#">Forget your password?</a>
-          <a href="/Signup"> <span>Don't have an account? </span>Sign up</a>
+          <button onClick={handleLogin}>{t('logIn')}</button>
+          <a href="#">{t('forgetPassword')}</a>
+          <a href="/Signup"> <span>{t('noAccount')}</span> {t('signUpHere')}</a>
           <hr />
           <div className="social-login">
             <a href="#"><i className="fab fa-facebook"></i></a>
@@ -72,6 +74,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <CherryBlossomBot />
       <Footer />
     </div>
   );

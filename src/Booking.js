@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Calendar from 'react-calendar';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -7,6 +8,8 @@ import 'react-calendar/dist/Calendar.css';
 import './booking.css';
 
 const Booking = () => {
+  const { t } = useTranslation();
+
   const senseis = [
     {
       id: 1,
@@ -109,10 +112,10 @@ const Booking = () => {
 
   const handleBooking = () => {
     if (selectedDate && selectedTime && bookingDetails.name && bookingDetails.email) {
-      window.alert(`Booking confirmed with ${selectedSensei.name} on ${selectedDate.toLocaleDateString()} at ${selectedTime}`);
+      window.alert(t('bookingConfirmed', { sensei: selectedSensei.name, date: selectedDate.toLocaleDateString(), time: selectedTime }));
       window.location.href = '/'; // Redirect to home page
     } else {
-      setConfirmation('Please fill out all fields.');
+      setConfirmation(t('fillOutAllFields'));
     }
   };
 
@@ -128,9 +131,9 @@ const Booking = () => {
       <Navbar name={"Book"} />
       <div className="booking-container-custom">
         <div className="form-container-custom">
-          <h2>Plan a Live Session with a Sensei</h2>
+          <h2>{t('bookSession')}</h2>
           <div className="form-group-custom">
-            <label>Select Sensei:</label>
+            <label>{t('selectSensei')}:</label>
             <select onChange={handleSenseiChange}>
               {senseis.map(sensei => (
                 <option className="book-options" key={sensei.id} value={sensei.id}>{sensei.name} - {sensei.expertise}</option>
@@ -138,7 +141,7 @@ const Booking = () => {
             </select>
           </div>
           <div className="form-group-custom">
-            <label>Select Date:</label>
+            <label>{t('selectDate')}:</label>
             <Calendar
               onChange={handleDateChange}
               value={selectedDate}
@@ -151,40 +154,40 @@ const Booking = () => {
             />
           </div>
           <div className="form-group-custom">
-            <label>Select Time:</label>
+            <label>{t('selectTime')}:</label>
             <select value={selectedTime} onChange={handleTimeChange} disabled={!selectedDate}>
-              <option className="book-options" value="">Select a time</option>
+              <option className="book-options" value="">{t('selectTime')}</option>
               {getAvailableTimes().map(time => (
                 <option className="book-options" key={time} value={time}>{time}</option>
               ))}
             </select>
           </div>
           <div className="form-group-custom">
-            <label>Name:</label>
+            <label>{t('name')}:</label>
             <input
               type="text"
               name="name"
-              placeholder="Enter your name"
+              placeholder={t('namePlaceholder')}
               value={bookingDetails.name}
               onChange={handleInputChange}
             />
           </div>
           <div className="form-group-custom">
-            <label>Email:</label>
+            <label>{t('email')}:</label>
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder={t('emailPlaceholder')}
               value={bookingDetails.email}
               onChange={handleInputChange}
             />
           </div>
-          <button className="button-custom" onClick={handleBooking}>Book Now</button>
+          <button className="button-custom" onClick={handleBooking}>{t('bookNow')}</button>
           {confirmation && <p className="confirmation-message">{confirmation}</p>}
         </div>
       </div>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
       <CherryBlossomBot />
       <Footer />
     </div>

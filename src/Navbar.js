@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import './index.css';
 import logo from './img/logo.jpg';
 import { HashLink as Link } from 'react-router-hash-link'; // https://stackoverflow.com/questions/40280369/use-anchors-with-react-router
+import { useTranslation } from 'react-i18next';
 
 const Navbar = ({ name }) => {
+  const { t } = useTranslation();
   const tmp = !(name == null);
   const [navBackground, setNavBackground] = useState(tmp);
 
@@ -31,14 +33,14 @@ const Navbar = ({ name }) => {
         </a>
       </div>
       <ul className="navbar-links">
-        <li><Link to="/#about"> About</Link></li>
-        <li><a href="/Video">Tutorials Video</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="/Booking">Plan a Live Session</a></li>
+        <li><Link to="/#about">{t('about')}</Link></li>
+        <li><a href="/Video">{t('tutorials')}</a></li>
+        <li><a href="#contact">{t('contact')}</a></li>
+        <li><a href="/Booking">{t('planLiveSession')}</a></li>
       </ul>
       <div className="navbar-buttons">
-        <a href="/Login"><button className="btn">Log In</button></a>
-        <a href="/Signup"><button className="btn signup-btn">Sign Up</button></a>
+        <a href="/Login"><button className="btn">{t('logIn')}</button></a>
+        <a href="/Signup"><button className="btn signup-btn">{t('signUp')}</button></a>
       </div>
     </nav>
   );
