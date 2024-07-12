@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom"; // https://stackoverflow.com/que
 import '@fortawesome/fontawesome-free/css/all.min.css'; // https://stackoverflow.com/questions/76387374/how-to-add-icons-in-react-js
 import { HashLink as Link } from 'react-router-hash-link'; // https://stackoverflow.com/questions/40280369/use-anchors-with-react-router
 import './form.css';
+import cherryBlossomMotifLeft from './img/cherryBlossomMotif.png'; 
+import cherryBlossomMotifRight from './img/cherryBlossomMotif2.png';
+
 
 const Login = () => {
   const { t } = useTranslation();
@@ -21,7 +24,6 @@ const Login = () => {
       setError(t('fillOutAllFields'));
     } else {
       setError('');
-      // Proceed with login 
       navigate("/Video");
     }
   };
@@ -30,6 +32,8 @@ const Login = () => {
     <div className="App entry">
       <Navbar name="form" />
       <div className="form-container">
+        <img src={cherryBlossomMotifLeft} className="cherry-blossom-left" alt="Cherry Blossom Motif" />
+        <img src={cherryBlossomMotifRight} className="cherry-blossom-right" alt="Cherry Blossom Motif" />
         <div className="form-box">
           <h2>{t('logInTitle')}</h2>
           <div className="form-group">

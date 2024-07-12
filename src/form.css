@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
+    position: relative;
 }
 
 .form-box {
@@ -20,6 +21,7 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    z-index: 2; /* Ensure form-box is above the motif */
 }
 
 .form-box h2 {
@@ -159,4 +161,23 @@
 .button-row {
     display: flex;
     justify-content: space-between;
+}
+
+.cherry-blossom-left  {
+    position: absolute;
+    z-index: 1;
+    width: 30%;
+    max-width: 500px; 
+    left: 0; 
+}
+
+.cherry-blossom-right {
+    position: absolute;
+    z-index: 1;
+    width: 30%;
+    max-width: 500px; 
+    bottom: -1px; 
+    right: 0; 
+    transform: rotate(-90deg); 
+    transform-origin: center;
 }
