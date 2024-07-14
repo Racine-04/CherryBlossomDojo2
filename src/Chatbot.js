@@ -42,6 +42,11 @@ const steps = [
       { value: 'videos', label: 'Show me tutorial videos', trigger: 'showVideos' },
       { value: 'contact', label: 'Contact support', trigger: 'contactSupport' },
       { value: 'about', label: 'Tell me about Cherry Blossom Dojo', trigger: 'about' },
+      { value: 'book', label: 'How do I book a live session?', trigger: 'bookSession' },
+      { value: 'signup', label: 'How do I sign up?', trigger: 'signUp' },
+      { value: 'login', label: 'How do I log in?', trigger: 'logIn' },
+      { value: 'language', label: 'How can I change the language?', trigger: 'changeLanguage' },
+      { value: 'about_us', label: 'Tell me more about Cherry Blossom Dojo', trigger: 'moreAboutUs' },
     ],
   },
   {
@@ -56,7 +61,32 @@ const steps = [
   },
   {
     id: 'about',
-    message: 'Cherry Blossom Dojo offers online martial arts training from the comfort of your home.',
+    message: 'Cherry Blossom Dojo offers online martial arts training from the comfort of your home. Our experienced instructors provide high-quality tutorials for all levels. Join us to enhance your physical fitness, mental clarity, and overall well-being.',
+    trigger: '4',
+  },
+  {
+    id: 'bookSession',
+    message: 'To book a live session, follow these steps: 1. Go to the "Plan a Live Session" page. 2. Select your Sensei and date. 3. Choose a time slot and enter your details. 4. Click "Book Now".',
+    trigger: '4',
+  },
+  {
+    id: 'signUp',
+    message: 'To sign up: 1. Go to the Sign Up page. 2. Enter your email address. 3. Provide your basic info. 4. Create your password. 5. Click "Next" and follow the instructions.',
+    trigger: '4',
+  },
+  {
+    id: 'logIn',
+    message: 'To log in: 1. Go to the Log In page. 2. Enter your email address or user name. 3. Enter your password. 4. Click "Log In".',
+    trigger: '4',
+  },
+  {
+    id: 'changeLanguage',
+    message: 'To change the language: 1. Go to the footer of any page. 2. Find the language select dropdown. 3. Choose your preferred language from the options.',
+    trigger: '4',
+  },
+  {
+    id: 'moreAboutUs',
+    message: 'At Cherry Blossom Dojo, we believe that martial arts is more than just physical activity; it is a way of life. Our programs are designed to not only improve your physical skills but also to foster mental discipline and spiritual growth. Whether you are looking to learn self-defense techniques, improve your fitness, or find a path to inner peace, our dojo offers something for everyone. We are committed to providing a supportive and inclusive environment where everyone can thrive.',
     trigger: '4',
   },
 ];

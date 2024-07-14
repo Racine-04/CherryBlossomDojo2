@@ -6,6 +6,8 @@ import Footer from './Footer';
 import CherryBlossomBot from './Chatbot';
 import 'react-calendar/dist/Calendar.css';
 import './booking.css';
+import cherryBlossomMotifLeft from './img/cherryBlossomMotif.png'; 
+import cherryBlossomMotifRight from './img/cherryBlossomMotif2.png';
 
 const Booking = () => {
   const { t } = useTranslation();
@@ -129,6 +131,9 @@ const Booking = () => {
   return (
     <div className="entry-booking">
       <Navbar name={"Book"} />
+      <div className="contain">
+      <img src={cherryBlossomMotifLeft} className="cherry-blossom-left-custom" alt="Cherry Blossom Motif" />
+      <img src={cherryBlossomMotifRight} className="cherry-blossom-right-custom" alt="Cherry Blossom Motif" />
       <div className="booking-container-custom">
         <div className="form-container-custom">
           <h2>{t('bookSession')}</h2>
@@ -188,6 +193,7 @@ const Booking = () => {
       </div>
       <br />
       <br />
+      </div>
       <CherryBlossomBot />
       <Footer />
     </div>

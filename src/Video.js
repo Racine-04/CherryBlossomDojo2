@@ -3,11 +3,13 @@ import { useTranslation } from 'react-i18next';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import VideoList from './VideoList';
-import cherryBlossomDojo from './img/CherryBlossomDojo.jpg'
+import cherryBlossomDojo from './img/CherryBlossomDojo.jpg';
 import CherryBlossomBot from './Chatbot';
-import './index.css'
+import './index.css';
 import './video.css';
 import { HashLink as Link } from 'react-router-hash-link'; // https://stackoverflow.com/questions/40280369/use-anchors-with-react-router
+import '@fortawesome/fontawesome-free/css/all.min.css'; // https://stackoverflow.com/questions/76387374/how-to-add-icons-in-react-js
+import ReactPaginate from 'react-paginate';
 
 const Video = () => {
   const { t, i18n } = useTranslation();
@@ -19,6 +21,8 @@ const Video = () => {
     time: [],
     date: [],
   });
+  const [currentPage, setCurrentPage] = useState(0);
+  const videosPerPage = 9;
 
   useEffect(() => {
     setVideos(t('initialVideos', { returnObjects: true }));
@@ -50,6 +54,13 @@ const Video = () => {
     return matchesType && matchesLevel && matchesTime && matchesDate;
   });
 
+  const pageCount = Math.ceil(filteredVideos.length / videosPerPage);
+  const currentVideos = filteredVideos.slice(currentPage * videosPerPage, (currentPage + 1) * videosPerPage);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
   return (
     <div className="App">
       <Navbar />
@@ -66,7 +77,7 @@ const Video = () => {
         <div className="filters">
           <h2>{t('filters')}</h2>
           <div>
-            <label className="filter-label">{t('martialArts')}</label>
+            <label className="filter-label"><i className="fas fa-hand-rock icon"></i> {t('martialArts')}</label>
             <div className="filter-group">
               <input type="checkbox" name="type" value={t('karate', { returnObjects: false })} onChange={handleCheckboxChange} />
               <label>{t('karate')}</label>
@@ -90,7 +101,7 @@ const Video = () => {
           </div>
           <hr />
           <div>
-            <label className="filter-label">{t('selfDefense')}</label>
+            <label className="filter-label"><i className="fa-solid fa-shield-halved icon"></i> {t('selfDefense')}</label>
             <div className="filter-group">
               <input type="checkbox" name="type" value={t('blocking', { returnObjects: false })} onChange={handleCheckboxChange} />
               <label>{t('blocking')}</label>
@@ -110,7 +121,7 @@ const Video = () => {
           </div>
           <hr />
           <div>
-            <label className="filter-label">{t('level')}</label>
+            <label className="filter-label"><i class="fa-solid fa-ranking-star icon"></i> {t('level')}</label>
             <div className="filter-group">
               <input type="checkbox" name="level" value={t('beginner', { returnObjects: false })} onChange={handleCheckboxChange} />
               <label>{t('beginner')}</label>
@@ -126,7 +137,7 @@ const Video = () => {
           </div>
           <hr />
           <div>
-            <label className="filter-label">{t('time')}</label>
+            <label className="filter-label"><i className="fas fa-hourglass icon"></i> {t('time')}</label>
             <div className="filter-group">
               <input type="checkbox" name="time" value={t('under10Minutes', { returnObjects: false })} onChange={handleCheckboxChange} />
               <label>{t('under10Minutes')}</label>
@@ -142,7 +153,7 @@ const Video = () => {
           </div>
           <hr />
           <div>
-            <label className="filter-label">{t('date')}</label>
+            <label className="filter-label"><i className="fa-regular fa-calendar icon"></i> {t('date')}</label>
             <div className="filter-group">
               <input type="checkbox" name="date" value={t('oneWeekAgo', { returnObjects: false })} onChange={handleCheckboxChange} />
               <label>{t('oneWeekAgo')}</label>
@@ -163,7 +174,23 @@ const Video = () => {
           <hr />
           <button onClick={clearFilters}>{t('clearFilters')}</button>
         </div>
-        <VideoList videos={filteredVideos} />
+        <div className="video-list-container">
+          <div className="video-list-header">
+            <h2>{t('tutorials')}</h2>
+            <ReactPaginate
+              previousLabel={t('previous')}
+              nextLabel={t('next')}
+              breakLabel="..."
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={3}
+              onPageChange={handlePageClick}
+              containerClassName="pagination"
+              activeClassName="active"
+            />
+          </div>
+          <VideoList videos={currentVideos} />
+        </div>
       </section>
       <CherryBlossomBot />
       <Footer />

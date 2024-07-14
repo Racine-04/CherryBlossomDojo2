@@ -6,19 +6,18 @@ const resources = {
   en: {
     translation: {
       title: "Cherry Blossom Dojo",
-      subheading: "Learn Martial Arts In The Comfort Of Your Own Home",
+      subheading: "Unleash Your Inner Warrior: Master Martial Arts from the Comfort of Your Home!",
       findOutMore: "Find out More",
       aboutUs: "About Us",
       aboutText: [
-        "Welcome to Cherry Blossom Dojo! We offer a unique blend of martial arts training that you can enjoy from the comfort of your home. Our mission is to bring the discipline, strength, and serenity of martial arts to everyone, regardless of location.",
-        "Our experienced instructors provide high-quality tutorials that cater to all levels, from beginners to advanced practitioners. Join us to enhance your physical fitness, mental clarity, and overall well-being through the art of martial arts.",
-        "At Cherry Blossom Dojo, we believe that martial arts is more than just physical activity; it is a way of life. Our programs are designed to not only improve your physical skills but also to foster mental discipline and spiritual growth. Whether you are looking to learn self-defense techniques, improve your fitness, or find a path to inner peace, our dojo offers something for everyone.",
-        "We are committed to providing a supportive and inclusive environment where everyone can thrive. Join our community and embark on a journey of self-discovery, empowerment, and transformation. At Cherry Blossom Dojo, we are more than just a dojo; we are a family."
-      ],
+        "Welcome to Cherry Blossom Dojo! Immerse yourself in the world of martial arts from the comfort of your home. Our mission is to bring the discipline, strength, and serenity of martial arts to everyone, no matter where you are.",
+        "Our expert instructors deliver top-notch tutorials tailored for all levels, from beginners to advanced practitioners. Join us to boost your physical fitness, sharpen your mental clarity, and elevate your overall well-being through the powerful art of martial arts.",
+        "At Cherry Blossom Dojo, martial arts is more than just a workout—it's a way of life. Our programs are crafted to enhance your physical abilities, cultivate mental discipline, and nurture spiritual growth. Whether you're eager to learn self-defense techniques, improve your fitness, or find a path to inner peace, our dojo has something for everyone.",
+        "We are dedicated to creating a supportive and inclusive community where everyone can flourish. Become a part of our family and embark on a transformative journey of self-discovery and empowerment. At Cherry Blossom Dojo, you're not just joining a dojo; you're joining a family."
+      ],      
       tutorials: "Tutorials",
       tutorialsVideo: "Tutorials Video",
-      videoWelcome: "Welcome to our Tutorials Video page! Here, you'll find a wide range of martial arts tutorials that cater to all skill levels, from beginner to advanced. Our expertly curated videos cover various martial arts disciplines, including Karate, Muay Thai, Brazilian Jiu Jitsu, Taekwondo, Boxing, and self-defense techniques such as Blocking, Striking, Dodging, and Sweeps. Whether you're looking to improve your skills, learn new techniques, or find effective self-defense strategies, our tutorials are designed to help you achieve your goals. Use the filters on the left to narrow down your search by martial art type, skill level, video duration, and upload date. Happy training!",
-      filters: "Filters",
+      videoWelcome: "Welcome to our Tutorials Video page! Dive into a vast collection of martial arts tutorials tailored for every skill level, from beginner to advanced. Explore expertly curated videos across various martial arts disciplines, including Karate, Muay Thai, Brazilian Jiu Jitsu, Taekwondo, Boxing, and essential self-defense techniques like Blocking, Striking, Dodging, and Sweeps. Whether you're looking to refine your skills, master new techniques, or discover powerful self-defense strategies, our tutorials are designed to help you reach your goals. Use the filters on the left to customize your search by martial art type, skill level, video duration, and upload date. Happy training and enjoy your journey to mastery!",      filters: "Filters",
       martialArts: "Martial Arts",
       selfDefense: "Self-Defense Technique",
       level: "Level",
@@ -84,8 +83,8 @@ const resources = {
       signUpWithGoogle: "Sign up with Google",
       // Login translations
       logInTitle: "Log in",
-      emailOrUsername: "Email address or user name",
-      emailOrUsernamePlaceholder: "Enter your email or user name",
+      emailOrUsername: "Email address",
+      emailOrUsernamePlaceholder: "Enter your email",
       rememberMe: "Remember me",
       forgetPassword: "Forget your password?",
       noAccount: "Don't have an account?",
@@ -98,6 +97,12 @@ const resources = {
       passwordRequired: "Password is required",
       passwordsDoNotMatch: "Passwords do not match",
       fillOutAllFields: "Please fill out all fields",
+      // Booking
+      bookSession: "Plan a Live Session with a Sensei",
+      selectSensei: "Select a Sensei",
+      selectDate: "Select a Date",
+      selectTime: "Select a Time",
+      bookNow: "Book Now",
       // Initial Videos
       initialVideos: [
         {
@@ -396,7 +401,7 @@ const resources = {
   es: {
     translation: {
       title: "Dojo de Flor de Cerezo",
-      subheading: "Aprende Artes Marciales en la Comodidad de Tu Hogar",
+      subheading: "Desata tu Guerrero Interior: ¡Domina las Artes Marciales desde la Comodidad de tu Hogar!",
       findOutMore: "Descubrir Más",
       aboutUs: "Sobre Nosotros",
       aboutText: [
@@ -474,12 +479,18 @@ const resources = {
       signUpWithGoogle: "Regístrate con Google",
       // Login translations
       logInTitle: "Iniciar sesión",
-      emailOrUsername: "Correo electrónico o nombre de usuario",
-      emailOrUsernamePlaceholder: "Introduce tu correo electrónico o nombre de usuario",
+      emailOrUsername: "Correo electrónico",
+      emailOrUsernamePlaceholder: "Introduce tu correo electrónico",
       rememberMe: "Recuérdame",
       forgetPassword: "¿Olvidaste tu contraseña?",
       noAccount: "¿No tienes una cuenta?",
       signUpHere: "Regístrate",
+      // Booking
+      bookSession: "Planificar una sesión en vivo con un Sensei",
+      selectSensei: "Seleccionar un Sensei",
+      selectDate: "Seleccionar una fecha",
+      selectTime: "Seleccionar una hora",
+      bookNow: "Reservar Ahora",
       // Errors
       emailRequired: "El correo electrónico es obligatorio",
       nameRequired: "El nombre es obligatorio",

@@ -1,104 +1,142 @@
 /* Hero Section Styles */
 .hero-section {
-    position: relative;
-    height: 60vh;
-    width: 100%;
-    overflow: hidden;
-  }
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  overflow: hidden;
+}
 
-  .video-title h1 {
-    margin-top: 75px;
-    font-size: 4rem;
-  }
+.video-title h1 {
+  margin-top: 75px;
+  font-size: 4rem;
+}
+
+/* Filters Section Styles */
+.filters-section {
+  display: flex;
+  align-items: flex-start; /* Ensure both sections start at the same height */
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #5A3D31;
+  color: white;
+}
+
+.filters {
+  margin-top: 2.5%;
+  flex: 1;
+  max-width: 200px;
+}
+
+.filters h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.filters label.filter-label {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.filters .filter-group {
+  margin-left: 15px;
+  padding: 1.2%;
+}
+
+.filters input[type="checkbox"] {
+  accent-color: #FFC0CB; /* Set checkbox color to pink */
+  margin-right: 5px;
+}
+
+.filters hr {
+  border: 0;
+  height: 1px;
+  background: #FFC0CB;
+  margin: 10px 0;
+}
+
+.filters button {
+  background-color: #FFC0CB;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Video List Styles */
+.video-list-container {
+  flex: 3;
+  padding: 20px;
+}
+
+.video-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video-list {
+  flex: 3;
+  padding: 20px;
+}
+
+.video-list-header h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+  gap: 20px;
+}
+
+.video-item {
+  background-color: #4A2C2A;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.video-item h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.video-item p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+  color: #FFC0CB;
+}
   
-  /* Filters Section Styles */
-  .filters-section {
+  .pagination {
     display: flex;
-    align-items: flex-start; /* Ensure both sections start at the same height */
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #5A3D31;
-    color: white;
+    justify-content: center;
+    margin: 20px 0;
+    list-style-type: none;
+    padding: 0;
   }
   
-  .filters {
-    margin-top: 2.5%;
-    flex: 1;
-    max-width: 200px;
+  .pagination li {
+    display: inline;
+    margin: 0 5px;
   }
   
-  .filters h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .filters label.filter-label {
-    font-size: 1.2rem;
-    display: block;
-    margin-bottom: 5px;
-    margin-top: 10px;
-  }
-  
-  .filters .filter-group {
-    margin-left: 15px;
-    padding: 1.2%;
-  }
-  
-  .filters input[type="checkbox"] {
-    accent-color: #FFC0CB; /* Set checkbox color to pink */
-    margin-right: 5px;
-  }
-  
-  .filters hr {
-    border: 0;
-    height: 1px;
-    background: #FFC0CB;
-    margin: 10px 0;
-  }
-  
-  .filters button {
-    background-color: #FFC0CB;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 20px;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  /* Video List Styles */
-  .video-list {
-    flex: 3;
-    padding: 20px;
-  }
-  
-  .video-list h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .videos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .video-item {
-    background-color: #4A2C2A;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .video-item h3 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-  }
-  
-  .video-item p {
-    font-size: 0.9rem;
-    margin: 5px 0;
+  .pagination li a {
     color: #FFC0CB;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #5A3D31;
+  }
+  
+  .pagination li a:hover,
+  .pagination li.active a {
+    background-color: #FFC0CB;
+    color: #5A3D31;
   }

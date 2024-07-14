@@ -7,7 +7,6 @@ const VideoList = ({ videos }) => {
 
   return (
     <div className="video-list">
-      <h2>{t('tutorials')}</h2>
       <div className="videos-grid">
         {videos.map((video) => (
           <div key={video.id} className="video-item">

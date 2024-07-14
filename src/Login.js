@@ -16,14 +16,20 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!email) newErrors.email = t('emailRequired');
+    if (!password) newErrors.password = t('passwordRequired');
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleLogin = () => {
-    if (email === '' || password === '') {
-      setError(t('fillOutAllFields'));
-    } else {
-      setError('');
+    if (validateForm()) {
+      setErrors({});
       navigate("/Video");
     }
   };
@@ -45,6 +51,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            {errors.email && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.email}</p>}
           </div>
           <div className="form-group">
             <label htmlFor="password">{t('password')}</label>
@@ -55,6 +62,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors.password && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.password}</p>}
           </div>
           <div className="form-group checkbox-group">
             <input
@@ -65,7 +73,6 @@ const Login = () => {
             />
             <label htmlFor="rememberMe">{t('rememberMe')}</label>
           </div>
-          {error && <div className="error-message">{error}</div>}
           <button onClick={handleLogin}>{t('logIn')}</button>
           <a href="#">{t('forgetPassword')}</a>
           <a href="/Signup"> <span>{t('noAccount')}</span> {t('signUpHere')}</a>

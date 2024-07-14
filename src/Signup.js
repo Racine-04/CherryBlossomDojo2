@@ -7,6 +7,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css'; // https://stackoverflow
 import { useNavigate } from "react-router-dom"; // https://stackoverflow.com/questions/50644976/react-button-onclick-redirect-page
 import { HashLink as Link } from 'react-router-hash-link'; // https://stackoverflow.com/questions/40280369/use-anchors-with-react-router
 import './form.css';
+import cherryBlossomMotifLeft from './img/cherryBlossomMotif.png'; 
+import cherryBlossomMotifRight from './img/cherryBlossomMotif2.png';
 
 const Signup = () => {
   const { t } = useTranslation();
@@ -22,12 +24,26 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (step === 1 && !formData.email) newErrors.email = t('emailRequired');
+    if (step === 2) {
+      if (!formData.name) newErrors.name = t('nameRequired');
+      if (!formData.address) newErrors.address = t('addressRequired');
+      if (!formData.goal) newErrors.goal = t('goalRequired');
+    }
+    if (step === 3) {
+      if (!formData.password) newErrors.password = t('passwordRequired');
+      if (formData.password.length < 8) newErrors.password = t('passwordTooShort');
+      if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = t('passwordsDoNotMatch');
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const nextStep = () => {
-    const currentErrors = validateForm();
-    if (Object.keys(currentErrors).length === 0) {
+    if (validateForm()) {
       setStep(step + 1);
-    } else {
-      setErrors(currentErrors);
     }
   };
 
@@ -39,27 +55,9 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const validateForm = () => {
-    let currentErrors = {};
-    if (step === 1 && !formData.email) currentErrors.email = t('emailRequired');
-    if (step === 2) {
-      if (!formData.name) currentErrors.name = t('nameRequired');
-      if (!formData.address) currentErrors.address = t('addressRequired');
-      if (!formData.goal) currentErrors.goal = t('goalRequired');
-    }
-    if (step === 3) {
-      if (!formData.password) currentErrors.password = t('passwordRequired');
-      if (formData.password !== formData.confirmPassword) currentErrors.confirmPassword = t('passwordsDoNotMatch');
-    }
-    return currentErrors;
-  };
-
   const handleSubmit = () => {
-    const currentErrors = validateForm();
-    if (Object.keys(currentErrors).length === 0) {
+    if (validateForm()) {
       navigate("/Video");
-    } else {
-      setErrors(currentErrors);
     }
   };
 
@@ -67,6 +65,8 @@ const Signup = () => {
     <div className="App entry">
       <Navbar name="Form" />
       <div className="form-container">
+      <img src={cherryBlossomMotifLeft} className="cherry-blossom-left" alt="Cherry Blossom Motif" />
+      <img src={cherryBlossomMotifRight} className="cherry-blossom-right" alt="Cherry Blossom Motif" />
         <div className="form-box">
           <h2>{t('createAccount')}</h2>
           <div className="step-indicator">
@@ -85,7 +85,7 @@ const Signup = () => {
                   value={formData.email}
                   onChange={handleChange}
                 />
-                {errors.email && <p className="error-message">{errors.email}</p>}
+                {errors.email && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.email}</p>}
               </div>
               <button onClick={nextStep}>{t('next')}</button>
               <hr />
@@ -106,7 +106,7 @@ const Signup = () => {
                   value={formData.name}
                   onChange={handleChange}
                 />
-                {errors.name && <p className="error-message">{errors.name}</p>}
+                {errors.name && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.name}</p>}
               </div>
               <div className="form-group">
                 <label htmlFor="address">{t('address')}</label>
@@ -117,7 +117,7 @@ const Signup = () => {
                   value={formData.address}
                   onChange={handleChange}
                 />
-                {errors.address && <p className="error-message">{errors.address}</p>}
+                {errors.address && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.address}</p>}
               </div>
               <div className="form-group">
                 <label htmlFor="goal">{t('goal')}</label>
@@ -128,7 +128,7 @@ const Signup = () => {
                   value={formData.goal}
                   onChange={handleChange}
                 />
-                {errors.goal && <p className="error-message">{errors.goal}</p>}
+                {errors.goal && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.goal}</p>}
               </div>
               <div className="button-row">
                 <button onClick={prevStep} className="prev-button">{t('previous')}</button>
@@ -147,7 +147,7 @@ const Signup = () => {
                   value={formData.password}
                   onChange={handleChange}
                 />
-                {errors.password && <p className="error-message">{errors.password}</p>}
+                {errors.password && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.password}</p>}
               </div>
               <div className="form-group">
                 <label htmlFor="confirmPassword">{t('confirmPassword')}</label>
@@ -158,7 +158,7 @@ const Signup = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                 />
-                {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
+                {errors.confirmPassword && <p className="error-message"><i className="fas fa-exclamation-circle"></i> {errors.confirmPassword}</p>}
               </div>
               <div className="button-row">
                 <button onClick={prevStep} className="prev-button">{t('previous')}</button>
