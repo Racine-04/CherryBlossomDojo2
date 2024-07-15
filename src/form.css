@@ -134,10 +134,15 @@
     color: #37211A;
     font-weight: bold;
     margin-bottom: 5px;
+    position: relative;
 }
 
 .form-box .step-indicator .step p {
     color: #FFC0CB;
+}
+
+.form-box .step-indicator .step span.checkmark {
+    color: #37211A;
 }
 
 .form-box .step-indicator .step.step.active p {
@@ -145,7 +150,7 @@
 }
 
 .form-box .step-indicator .step.active span {
-    background-color: white;
+    background-color: #FFFFFF;
     color: #37211A;
 }
 

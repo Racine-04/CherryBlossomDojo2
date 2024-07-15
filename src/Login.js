@@ -10,7 +10,6 @@ import './form.css';
 import cherryBlossomMotifLeft from './img/cherryBlossomMotif.png'; 
 import cherryBlossomMotifRight from './img/cherryBlossomMotif2.png';
 
-
 const Login = () => {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
@@ -19,9 +18,19 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  // https://www.simplilearn.com/tutorials/javascript-tutorial/email-validation-in-javascript#:~:text=One%20of%20the%20most%20popular,describe%20a%20pattern%20of%20characters.
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const validateForm = () => {
     const newErrors = {};
-    if (!email) newErrors.email = t('emailRequired');
+    if (!email) {
+      newErrors.email = t('emailRequired');
+    } else if (!validateEmail(email)) {
+      newErrors.email = t('invalidEmailFormat');
+    }
     if (!password) newErrors.password = t('passwordRequired');
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

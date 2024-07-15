@@ -6,7 +6,7 @@ import Footer from './Footer';
 import CherryBlossomBot from './Chatbot';
 import 'react-calendar/dist/Calendar.css';
 import './booking.css';
-import cherryBlossomMotifLeft from './img/cherryBlossomMotif.png'; 
+import cherryBlossomMotifLeft from './img/cherryBlossomMotif.png';
 import cherryBlossomMotifRight from './img/cherryBlossomMotif2.png';
 
 const Booking = () => {
@@ -70,7 +70,7 @@ const Booking = () => {
     name: '',
     email: '',
   });
-  const [confirmation, setConfirmation] = useState('');
+  const [errors, setErrors] = useState({});
 
   function generateAvailability(startDate, daysAhead, times) {
     const availability = [];
@@ -97,28 +97,63 @@ const Booking = () => {
     setSelectedSensei(sensei);
     setSelectedDate(null);
     setSelectedTime('');
+    setErrors({});
   };
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setSelectedTime('');
+    setErrors({});
   };
 
   const handleTimeChange = (e) => {
     setSelectedTime(e.target.value);
+    setErrors({});
   };
 
   const handleInputChange = (e) => {
     setBookingDetails({ ...bookingDetails, [e.target.name]: e.target.value });
+    setErrors({});
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   const handleBooking = () => {
-    if (selectedDate && selectedTime && bookingDetails.name && bookingDetails.email) {
-      window.alert(t('bookingConfirmed', { sensei: selectedSensei.name, date: selectedDate.toLocaleDateString(), time: selectedTime }));
-      window.location.href = '/'; // Redirect to home page
-    } else {
-      setConfirmation(t('fillOutAllFields'));
+    const newErrors = {};
+    if (!selectedSensei) newErrors.sensei = t('selectSensei');
+    if (!selectedDate) newErrors.date = t('selectDate');
+    if (!selectedTime) newErrors.time = t('selectTime');
+    if (!bookingDetails.name) newErrors.name = t('nameRequired');
+    if (!bookingDetails.email) {
+      newErrors.email = t('emailRequired');
+    } else if (!validateEmail(bookingDetails.email)) {
+      newErrors.email = t('invalidEmailFormat');
     }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      const confirmed = window.confirm(t('confirmBooking', {
+        sensei: selectedSensei.name,
+        date: selectedDate.toLocaleDateString(),
+        time: selectedTime
+      }));
+      if (confirmed) {
+        window.alert(t('bookingConfirmed', {
+          sensei: selectedSensei.name,
+          date: selectedDate.toLocaleDateString(),
+          time: selectedTime
+        }));
+        window.location.href = '/'; // Redirect to home page
+      }
+    }
+  };
+
+  const handleCancel = () => {
+    window.location.href = '/';
   };
 
   const getAvailableTimes = () => {
@@ -132,67 +167,74 @@ const Booking = () => {
     <div className="entry-booking">
       <Navbar name={"Book"} />
       <div className="contain">
-      <img src={cherryBlossomMotifLeft} className="cherry-blossom-left-custom" alt="Cherry Blossom Motif" />
-      <img src={cherryBlossomMotifRight} className="cherry-blossom-right-custom" alt="Cherry Blossom Motif" />
-      <div className="booking-container-custom">
-        <div className="form-container-custom">
-          <h2>{t('bookSession')}</h2>
-          <div className="form-group-custom">
-            <label>{t('selectSensei')}:</label>
-            <select onChange={handleSenseiChange}>
-              {senseis.map(sensei => (
-                <option className="book-options" key={sensei.id} value={sensei.id}>{sensei.name} - {sensei.expertise}</option>
-              ))}
-            </select>
+        <img src={cherryBlossomMotifLeft} className="cherry-blossom-left-custom" alt="Cherry Blossom Motif" />
+        <img src={cherryBlossomMotifRight} className="cherry-blossom-right-custom" alt="Cherry Blossom Motif" />
+        <div className="booking-container-custom">
+          <div className="form-container-custom">
+            <h2>{t('bookSession')}</h2>
+            <div className="form-group-custom">
+              <label>{t('selectSensei')}:</label>
+              <select onChange={handleSenseiChange}>
+                {senseis.map(sensei => (
+                  <option className="book-options" key={sensei.id} value={sensei.id}>{sensei.name} - {sensei.expertise}</option>
+                ))}
+              </select>
+              {errors.sensei && <p className="error-message">{errors.sensei}</p>}
+            </div>
+            <div className="form-group-custom">
+              <label>{t('selectDate')}:</label>
+              <Calendar
+                onChange={handleDateChange}
+                value={selectedDate}
+                tileDisabled={({ date }) => !selectedSensei.availability.some(dateTime => new Date(dateTime).toDateString() === date.toDateString())}
+                tileClassName={({ date }) =>
+                  selectedSensei.availability.some(dateTime => new Date(dateTime).toDateString() === date.toDateString())
+                    ? 'react-calendar__tile--available'
+                    : null
+                }
+              />
+              {errors.date && <p className="error-message">{errors.date}</p>}
+            </div>
+            <div className="form-group-custom">
+              <label>{t('selectTime')}:</label>
+              <select value={selectedTime} onChange={handleTimeChange} disabled={!selectedDate}>
+                <option className="book-options" value="">{t('selectTime')}</option>
+                {getAvailableTimes().map(time => (
+                  <option className="book-options" key={time} value={time}>{time}</option>
+                ))}
+              </select>
+              {errors.time && <p className="error-message">{errors.time}</p>}
+            </div>
+            <div className="form-group-custom">
+              <label>{t('name')}:</label>
+              <input
+                type="text"
+                name="name"
+                placeholder={t('namePlaceholder')}
+                value={bookingDetails.name}
+                onChange={handleInputChange}
+              />
+              {errors.name && <p className="error-message">{errors.name}</p>}
+            </div>
+            <div className="form-group-custom">
+              <label>{t('email')}:</label>
+              <input
+                type="email"
+                name="email"
+                placeholder={t('emailPlaceholder')}
+                value={bookingDetails.email}
+                onChange={handleInputChange}
+              />
+              {errors.email && <p className="error-message">{errors.email}</p>}
+            </div>
+            <div className="button-group">
+              <button className="button-cancel" onClick={handleCancel}>{t('cancel')}</button>
+              <button className="button-custom" onClick={handleBooking}>{t('bookNow')}</button>
+            </div>
           </div>
-          <div className="form-group-custom">
-            <label>{t('selectDate')}:</label>
-            <Calendar
-              onChange={handleDateChange}
-              value={selectedDate}
-              tileDisabled={({ date }) => !selectedSensei.availability.some(dateTime => new Date(dateTime).toDateString() === date.toDateString())}
-              tileClassName={({ date }) =>
-                selectedSensei.availability.some(dateTime => new Date(dateTime).toDateString() === date.toDateString())
-                  ? 'react-calendar__tile--available'
-                  : null
-              }
-            />
-          </div>
-          <div className="form-group-custom">
-            <label>{t('selectTime')}:</label>
-            <select value={selectedTime} onChange={handleTimeChange} disabled={!selectedDate}>
-              <option className="book-options" value="">{t('selectTime')}</option>
-              {getAvailableTimes().map(time => (
-                <option className="book-options" key={time} value={time}>{time}</option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group-custom">
-            <label>{t('name')}:</label>
-            <input
-              type="text"
-              name="name"
-              placeholder={t('namePlaceholder')}
-              value={bookingDetails.name}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="form-group-custom">
-            <label>{t('email')}:</label>
-            <input
-              type="email"
-              name="email"
-              placeholder={t('emailPlaceholder')}
-              value={bookingDetails.email}
-              onChange={handleInputChange}
-            />
-          </div>
-          <button className="button-custom" onClick={handleBooking}>{t('bookNow')}</button>
-          {confirmation && <p className="confirmation-message">{confirmation}</p>}
         </div>
-      </div>
-      <br />
-      <br />
+        <br />
+        <br />
       </div>
       <CherryBlossomBot />
       <Footer />

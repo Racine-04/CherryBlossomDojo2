@@ -14,16 +14,16 @@
 /* Filters Section Styles */
 .filters-section {
   display: flex;
-  align-items: flex-start; /* Ensure both sections start at the same height */
+  align-items: stretch; /* Ensure both sections stretch to the same height */
   justify-content: space-between;
   padding: 20px;
   background-color: #5A3D31;
   color: white;
+  flex: 1;
 }
 
 .filters {
   margin-top: 2.5%;
-  flex: 1;
   max-width: 200px;
 }
 
@@ -72,6 +72,9 @@
 .video-list-container {
   flex: 3;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .video-list-header {
@@ -81,8 +84,10 @@
 }
 
 .video-list {
-  flex: 3;
+  flex: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .video-list-header h2 {
@@ -114,29 +119,42 @@
   color: #FFC0CB;
 }
   
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .pagination li {
-    display: inline;
-    margin: 0 5px;
-  }
-  
-  .pagination li a {
-    color: #FFC0CB;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: #5A3D31;
-  }
-  
-  .pagination li a:hover,
-  .pagination li.active a {
-    background-color: #FFC0CB;
-    color: #5A3D31;
-  }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+.pagination li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.pagination li a {
+  color: #FFC0CB;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #5A3D31;
+}
+
+.pagination li a:hover,
+.pagination li.active a {
+  background-color: #FFC0CB;
+  color: #5A3D31;
+}
+
+.recommended-section {
+  padding: 20px;
+  background-color: #5A3D31;
+  color: white;
+  border-bottom: 1px solid #FFC0CB;
+}
+
+.recommended-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+

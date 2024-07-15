@@ -1,7 +1,6 @@
 .entry-booking {
     background-color: #5A3D31;
     padding-top: 115px;
-    
 }
 
 .contain {
@@ -61,8 +60,15 @@
     color: #fff;
 }
 
-.button-custom {
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
+}
+
+.button-custom,
+.button-cancel {
     background-color: #FFC0CB;
     color: white;
     border: none;
@@ -70,13 +76,7 @@
     cursor: pointer;
     border-radius: 20px;
     font-size: 1rem;
-    width: 100%;
-}
-
-.button-custom:focus,
-.button-custom:active {
-    background-color: white;
-    color: #FFC0CB;
+    width: 48%;
 }
 
 .confirmation-message {
@@ -93,7 +93,6 @@
     color: white;
     padding: 10px;
     width: 100%;
-
 }
 
 .react-calendar__navigation button {

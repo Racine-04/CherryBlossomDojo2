@@ -43,6 +43,7 @@ const resources = {
       twoWeeksAgo: "2 weeks ago",
       oneMonthAgo: "1 month ago",
       sixMonthsAgo: "6 months ago",
+      recommendedVideos: "Recommended Videos for You",
       // Navbar translations
       home: "Home",
       about: "About",
@@ -81,6 +82,9 @@ const resources = {
       logInHere: "Log in",
       signUpWithFacebook: "Sign up with Facebook",
       signUpWithGoogle: "Sign up with Google",
+      passwordTooShort: "The password is too short. It needs to be at least 8 characters long.",
+      invalidEmailFormat: "Invalid email format. It should be something like example@gmail.com.",
+      areYouSureCreateAccount: "Are you sure you want to create this account with these informations?",
       // Login translations
       logInTitle: "Log in",
       emailOrUsername: "Email address",
@@ -103,6 +107,9 @@ const resources = {
       selectDate: "Select a Date",
       selectTime: "Select a Time",
       bookNow: "Book Now",
+      cancel: "Cancel",
+      bookingConfirmed: "Booking confirmed with {{sensei}} on {{date}} at {{time}}.",
+      confirmBooking: "Are you sure you want to book this live session on {{date}} at {{time}} with {{sensei}}?",
       // Initial Videos
       initialVideos: [
         {
@@ -439,6 +446,7 @@ const resources = {
       twoWeeksAgo: "hace 2 semanas",
       oneMonthAgo: "hace 1 mes",
       sixMonthsAgo: "hace 6 meses",
+      recommendedVideos: "Videos Recomendados para Ti",
       // Navbar translations
       home: "Inicio",
       about: "Sobre Nosotros",
@@ -477,6 +485,9 @@ const resources = {
       logInHere: "Iniciar sesión",
       signUpWithFacebook: "Regístrate en Facebook",
       signUpWithGoogle: "Regístrate con Google",
+      passwordTooShort: "La contraseña es demasiado corta. Debe tener al menos 8 caracteres.",
+      invalidEmailFormat: "Formato de correo electrónico inválido. Debe ser algo como ejemplo@gmail.com.",
+      areYouSureCreateAccount: "¿Estás seguro de que quieres crear esta cuenta con esta información?",
       // Login translations
       logInTitle: "Iniciar sesión",
       emailOrUsername: "Correo electrónico",
@@ -491,6 +502,9 @@ const resources = {
       selectDate: "Seleccionar una fecha",
       selectTime: "Seleccionar una hora",
       bookNow: "Reservar Ahora",
+      cancel: "Cancelar",
+      bookingConfirmed: "Reserva confirmada con {{sensei}} el {{date}} a las {{time}}.",
+      confirmBooking: "¿Estás seguro de que quieres reservar esta sesión en vivo el {{date}} a las {{time}} con {{sensei}}?",      
       // Errors
       emailRequired: "El correo electrónico es obligatorio",
       nameRequired: "El nombre es obligatorio",

@@ -24,9 +24,20 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const validateForm = () => {
     const newErrors = {};
-    if (step === 1 && !formData.email) newErrors.email = t('emailRequired');
+    if (step === 1) {
+      if (!formData.email) {
+        newErrors.email = t('emailRequired');
+      } else if (!validateEmail(formData.email)) {
+        newErrors.email = t('invalidEmailFormat');
+      }
+    }
     if (step === 2) {
       if (!formData.name) newErrors.name = t('nameRequired');
       if (!formData.address) newErrors.address = t('addressRequired');
@@ -57,7 +68,10 @@ const Signup = () => {
 
   const handleSubmit = () => {
     if (validateForm()) {
-      navigate("/Video");
+      const confirmed = window.confirm(t('areYouSureCreateAccount'));
+      if (confirmed) {
+        navigate("/Video");
+      }
     }
   };
 
@@ -65,14 +79,23 @@ const Signup = () => {
     <div className="App entry">
       <Navbar name="Form" />
       <div className="form-container">
-      <img src={cherryBlossomMotifLeft} className="cherry-blossom-left" alt="Cherry Blossom Motif" />
-      <img src={cherryBlossomMotifRight} className="cherry-blossom-right" alt="Cherry Blossom Motif" />
+        <img src={cherryBlossomMotifLeft} className="cherry-blossom-left" alt="Cherry Blossom Motif" />
+        <img src={cherryBlossomMotifRight} className="cherry-blossom-right" alt="Cherry Blossom Motif" />
         <div className="form-box">
           <h2>{t('createAccount')}</h2>
           <div className="step-indicator">
-            <div className={`step ${step === 1 ? 'active' : ''}`}><span>1</span><p>{t('enterEmail')}</p></div>
-            <div className={`step ${step === 2 ? 'active' : ''}`}><span>2</span><p>{t('provideInfo')}</p></div>
-            <div className={`step ${step === 3 ? 'active' : ''}`}><span>3</span><p>{t('createPassword')}</p></div>
+            <div className={`step ${step >= 1 ? 'active' : ''}`}>
+              <span>{step > 1 ? <i className="fas fa-check"></i> : '1'}</span>
+              <p>{t('enterEmail')}</p>
+            </div>
+            <div className={`step ${step >= 2 ? 'active' : ''}`}>
+              <span>{step > 2 ? <i className="fas fa-check"></i> : '2'}</span>
+              <p>{t('provideInfo')}</p>
+            </div>
+            <div className={`step ${step >= 3 ? 'active' : ''}`}>
+              <span>{step > 3 ? <i className="fas fa-check"></i> : '3'}</span>
+              <p>{t('createPassword')}</p>
+            </div>
           </div>
           {step === 1 && (
             <div>

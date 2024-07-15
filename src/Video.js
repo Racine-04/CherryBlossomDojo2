@@ -22,11 +22,16 @@ const Video = () => {
     date: [],
   });
   const [currentPage, setCurrentPage] = useState(0);
+  const [recommendedVideos, setRecommendedVideos] = useState([]);
   const videosPerPage = 9;
 
   useEffect(() => {
     setVideos(t('initialVideos', { returnObjects: true }));
   }, [i18n.language, t]);
+
+  useEffect(() => {
+    setRecommendedVideos(getRandomVideos(3)); // Set recommended videos once when the component mounts
+  }, []);
 
   const handleCheckboxChange = (e) => {
     const { name, value, checked } = e.target;
@@ -61,6 +66,11 @@ const Video = () => {
     setCurrentPage(selected);
   };
 
+  const getRandomVideos = (numVideos) => {
+    const shuffled = [...videos].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, numVideos);
+  };
+
   return (
     <div className="App">
       <Navbar />
@@ -73,6 +83,10 @@ const Video = () => {
           <p>{t('videoWelcome')}</p>
         </div>
       </header>
+      <section className="recommended-section">
+        <h2>{t('recommendedVideos')}</h2>
+        <VideoList videos={recommendedVideos} />
+      </section>
       <section className="filters-section">
         <div className="filters">
           <h2>{t('filters')}</h2>
@@ -121,7 +135,7 @@ const Video = () => {
           </div>
           <hr />
           <div>
-            <label className="filter-label"><i class="fa-solid fa-ranking-star icon"></i> {t('level')}</label>
+            <label className="filter-label"><i className="fa-solid fa-ranking-star icon"></i> {t('level')}</label>
             <div className="filter-group">
               <input type="checkbox" name="level" value={t('beginner', { returnObjects: false })} onChange={handleCheckboxChange} />
               <label>{t('beginner')}</label>
