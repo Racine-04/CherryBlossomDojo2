@@ -78,7 +78,7 @@ const Video = () => {
         <img src={cherryBlossomDojo} alt="Cherry Blossom Dojo" className="hero-image" />
         <div className="hero-overlay"></div>
         <div className="hero-text video-title">
-          <h1>{t('tutorialsVideo')}</h1>
+          <h1><em>{t('tutorialsVideo')}</em></h1>
           <div className="line-after-title"></div>
           <p>{t('videoWelcome')}</p>
         </div>

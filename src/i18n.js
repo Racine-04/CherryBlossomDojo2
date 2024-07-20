@@ -5,6 +5,7 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
+      lang: "en",
       title: "Cherry Blossom Dojo",
       subheading: "Unleash Your Inner Warrior: Master Martial Arts from the Comfort of Your Home!",
       findOutMore: "Find out More",
@@ -416,6 +417,7 @@ const resources = {
   },
   es: {
     translation: {
+      lang: "es",
       title: "Dojo de Flor de Cerezo",
       subheading: "Desata tu Guerrero Interior: ¡Domina las Artes Marciales desde la Comodidad de tu Hogar!",
       findOutMore: "Descubrir Más",
@@ -827,6 +829,7 @@ const resources = {
   },
   ja: {
     translation: {
+      lang: "ja",
       title: "桜道場",
       subheading: "内なる戦士を解き放て：自宅で武道をマスターしよう！",
       findOutMore: "もっと詳しく知る",

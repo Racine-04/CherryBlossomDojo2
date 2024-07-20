@@ -18,7 +18,7 @@ const App = () => {
         <img src={homePageImage} alt="Cherry Blossom Dojo main image" className="hero-image" role="img" aria-labelledby="hero-img-description" />
         <div className="hero-overlay"></div>
         <div className="hero-text">
-          <h1>{t('title')}</h1>
+          <h1><em>{t('title')}</em></h1>
           <div className="line-after-title"></div>
           <p className="subheading">{t('subheading')}</p>
           <a href="#about" aria-label={t('findOutMore')}><button className="hero-button">{t('findOutMore')}</button></a>
