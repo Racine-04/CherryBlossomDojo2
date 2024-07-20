@@ -94,6 +94,7 @@ const steps = [
 const config = {
   botAvatar: botAvatar,
   floating: true,
+  recognitionEnable: true,
 };
 
 const CherryBlossomBot = () => {

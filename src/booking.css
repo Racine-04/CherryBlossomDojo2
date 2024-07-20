@@ -53,7 +53,7 @@
 }
 
 .form-group-custom select option {
-    color: black; /* Ensures options are readable when displayed */
+    color: black;
 }
 
 .form-group-custom input::placeholder {

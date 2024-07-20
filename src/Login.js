@@ -43,6 +43,11 @@ const Login = () => {
     }
   };
 
+  const handleSocialLogin = (url) => {
+    window.open(url, '_blank');
+    navigate("/Video");
+  };
+
   return (
     <div className="App entry">
       <Navbar name="form" />
@@ -83,15 +88,17 @@ const Login = () => {
             <label htmlFor="rememberMe">{t('rememberMe')}</label>
           </div>
           <button onClick={handleLogin}>{t('logIn')}</button>
-          <a href="#">{t('forgetPassword')}</a>
+          <a href="/password-reset">{t('forgetPassword')}</a>
           <a href="/Signup"> <span>{t('noAccount')}</span> {t('signUpHere')}</a>
           <hr />
           <div className="social-login">
-            <a href="#"><i className="fab fa-facebook"></i></a>
-            <a href="#"><i className="fab fa-google"></i></a>
-            <a href="#"><i className="fab fa-twitter"></i></a>
-            <a href="#"><i className="fab fa-linkedin"></i></a>
-          </div>
+                <button onClick={() => handleSocialLogin('https://www.facebook.com/login/')}>
+                  <i className="fab fa-facebook"></i> {t('loginWithFacebook')}
+                </button>
+                <button onClick={() => handleSocialLogin('https://accounts.google.com/')}>
+                  <i className="fab fa-google"></i> {t('loginWithGoogle')}
+                </button>
+              </div>
         </div>
       </div>
       <CherryBlossomBot />

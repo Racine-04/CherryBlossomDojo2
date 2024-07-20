@@ -4,6 +4,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Video from "./Video";
 import Booking from "./Booking";
+import PasswordResetRequest from "./PasswordResetRequest";
 
 const MyRouter = () => {
 
@@ -16,6 +17,7 @@ const MyRouter = () => {
                 <Route path="/Login" element= {<Login />} />
                 <Route path="/Signup" element= {<Signup />} />
                 <Route path="/Booking" element= {<Booking />} />
+                <Route path="/password-reset" element={<PasswordResetRequest />} />
             </Routes>
         </div>
     </Router>

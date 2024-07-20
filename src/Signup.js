@@ -75,6 +75,11 @@ const Signup = () => {
     }
   };
 
+  const handleSocialLogin = (url) => {
+    window.open(url, '_blank');
+    navigate("/Video");
+  };
+
   return (
     <div className="App entry">
       <Navbar name="Form" />
@@ -113,8 +118,12 @@ const Signup = () => {
               <button onClick={nextStep}>{t('next')}</button>
               <hr />
               <div className="social-login">
-                <a href="#"><button><i className="fab fa-facebook"></i> {t('signUpWithFacebook')}</button></a>
-                <a href="#"><button><i className="fab fa-google"></i> {t('signUpWithGoogle')}</button></a>
+              <button onClick={() => handleSocialLogin('https://www.facebook.com/login/')}>
+                  <i className="fab fa-facebook"></i> {t('signUpWithFacebook')}
+                </button>
+                <button onClick={() => handleSocialLogin('https://accounts.google.com/')}>
+                  <i className="fab fa-google"></i> {t('signUpWithGoogle')}
+                </button>
               </div>
             </div>
           )}

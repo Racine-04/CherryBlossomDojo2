@@ -298,3 +298,15 @@ body, html {
   text-align: left;
   margin-top: 10px;
 }
+
+.footer-language-selector select{
+  border-radius: 5px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: white;
+  box-sizing: border-box;
+}
+
+.footer-language-selector select option {
+  color: black; 
+}

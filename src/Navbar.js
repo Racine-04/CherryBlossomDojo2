@@ -25,22 +25,22 @@ const Navbar = ({ name }) => {
   }, []);
 
   return (
-    <nav className={navBackground ? 'navbar scrolled' : 'navbar'}>
+    <nav className={navBackground ? 'navbar scrolled' : 'navbar'} aria-label="Main Navigation">
       <div className="navbar-logo">
-        <a href="/">
-          <img src={logo} alt="logo" className="navbar-logo-img" />
+        <a href="/" aria-label="Home">
+          <img src={logo} alt="Cherry Blossom Dojo logo" className="navbar-logo-img" />
           <span className="navbar-company-name">Cherry Blossom Dojo</span>
         </a>
       </div>
-      <ul className="navbar-links">
-        <li><Link to="/#about">{t('about')}</Link></li>
-        <li><a href="/Video">{t('tutorials')}</a></li>
-        <li><a href="#contact">{t('contact')}</a></li>
-        <li><a href="/Booking">{t('planLiveSession')}</a></li>
+      <ul className="navbar-links" role="menu">
+        <li role="menuitem"><Link to="/#about">{t('about')}</Link></li>
+        <li role="menuitem"><a href="/Video">{t('tutorials')}</a></li>
+        <li role="menuitem"><a href="#contact">{t('contact')}</a></li>
+        <li role="menuitem"><a href="/Booking">{t('planLiveSession')}</a></li>
       </ul>
       <div className="navbar-buttons">
-        <a href="/Login"><button className="btn">{t('logIn')}</button></a>
-        <a href="/Signup"><button className="btn signup-btn">{t('signUp')}</button></a>
+        <a href="/Login"><button className="btn" aria-label={t('logIn')}>{t('logIn')}</button></a>
+        <a href="/Signup"><button className="btn signup-btn" aria-label={t('signUp')}>{t('signUp')}</button></a>
       </div>
     </nav>
   );

@@ -13,36 +13,35 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer" aria-label="Footer">
       <div className="footer-content">
         <div className="footer-logo">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Cherry Blossom Dojo logo" />
           <span className="footer-company-name">Cherry Blossom Dojo</span>
         </div>
         <div className="footer-info" id="contact">
-          <p><i className="fas fa-map-marker-alt icon"></i> 2-14-8 Shibuya, Shibuya-ku, Tokyo, Japan</p>
-          <p><i className="fas fa-phone-alt icon"></i> (613) 942-4413</p>
-          <p><i className="fas fa-envelope icon"></i> CherryBlossomDojo@gmail.com</p>
+          <p><i className="fas fa-map-marker-alt icon" aria-hidden="true"></i> 2-14-8 Shibuya, Shibuya-ku, Tokyo, Japan</p>
+          <p><i className="fas fa-phone-alt icon" aria-hidden="true"></i> (613) 942-4413</p>
+          <p><i className="fas fa-envelope icon" aria-hidden="true"></i> CherryBlossomDojo@gmail.com</p>
         </div>
         <div className="footer-social">
           <p>{t('socialMedia')}</p>
           <div className="footer-social-icons">
-            <a href="#Home"><i className="fab fa-facebook-f icon"></i></a>
-            <a href="#Home"><i className="fab fa-twitter icon"></i></a>
-            <a href="#Home"><i className="fab fa-linkedin-in icon"></i></a>
-            <a href="#Home"><i className="fab fa-youtube icon"></i></a>
-            <a href="#Home"><i className="fab fa-instagram icon"></i></a>
+            <a href="#https://www.facebook.com/" aria-label="Facebook"><i className="fab fa-facebook-f icon" aria-hidden="true"></i></a>
+            <a href="https://x.com/" aria-label="Twitter"><i className="fab fa-twitter icon" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/" aria-label="LinkedIn"><i className="fab fa-linkedin-in icon" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/" aria-label="YouTube"><i className="fab fa-youtube icon" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/" aria-label="Instagram"><i className="fab fa-instagram icon" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
         <br />
-        <ul className="footer-links">
-          <li><Link to="/#about">{t('aboutUs')}</Link></li>
-          <li><a href="#contact">{t('contactUs')}</a></li>
-          <li><a href="#help">{t('help')}</a></li>
-          <li><a href="#privacy">{t('privacyPolicy')}</a></li>
-          <li><a href="#disclaimer">{t('disclaimer')}</a></li>
+        <ul className="footer-links" role="menu">
+          <li role="menuitem"><Link to="/#about">{t('aboutUs')}</Link></li>
+          <li role="menuitem"><a href="/Video">{t('tutorials')}</a></li>
+          <li role="menuitem"><a href="#contact">{t('contactUs')}</a></li>
+          <li role="menuitem"><a href="/Booking">{t('planLiveSession')}</a></li>
         </ul>
         <br />
         <div className="footer-language-selector">
@@ -50,7 +49,7 @@ const Footer = () => {
           <select id="language-select" onChange={handleLanguageChange} defaultValue={i18n.language}>
             <option value="en">English</option>
             <option value="es">Spanish</option>
-            {/* Add more languages as needed */}
+            <option value="ja">Japanese</option>
           </select>
         </div>
         <p>&copy; 2024 ABC Company. All rights reserved.</p>
